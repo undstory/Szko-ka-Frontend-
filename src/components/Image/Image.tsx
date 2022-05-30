@@ -1,7 +1,14 @@
 import React from 'react'
+import { ResponseData } from '../../models/model'
 
-export const Image = () => {
+const Image: React.FC<{result: any}> = (props) => {
+   const photo = props.result;
+    console.log(photo.id);
   return (
-    <div>Image</div>
+    <div>Image id: {photo.id}
+        <img src={photo.urls.small} />
+    </div>
   )
 }
+
+export default Image

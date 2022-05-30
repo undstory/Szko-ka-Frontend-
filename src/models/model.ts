@@ -1,4 +1,4 @@
-export interface responseData {
+export interface ResponseData {
     alt_description: string;
     blur_hash: string;
     categories: [];
