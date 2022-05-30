@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-import Form from '../../components/Header/Form/Form';
+import Form from '../../components/Form/Form';
 import Image  from '../../components/Image/Image';
 import { API_URL_RANDOM } from '../../api/api';
 
 const Random = () => {
 
-const [query, setQuery ] = useState('dog');
+const [query, setQuery ] = useState('');
 const [result, setResult] = useState();
 const [isFetching, setIsFetching] = useState(true);
 
@@ -29,8 +29,8 @@ useEffect(() => {
  }, [query]);
 
   return (
-    <div>Random
-        <Form />
+    <div>
+        <Form setQuery={setQuery} />
         {!isFetching && (<Image result={result} />)}
 
 

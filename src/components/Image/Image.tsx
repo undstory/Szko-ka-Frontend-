@@ -1,12 +1,14 @@
 import React from 'react'
-import { ResponseData } from '../../models/model'
+
 
 const Image: React.FC<{result: any}> = (props) => {
    const photo = props.result;
-    console.log(photo.id);
+    const { color, id, likes, views, urls, user } = photo;
+    console.log();
   return (
-    <div>Image id: {photo.id}
-        <img src={photo.urls.small} />
+    <div>Author: {user.name}
+        <img src={urls.small} alt={photo.alt_description} title={photo.alt_description} />
+        Likes: {likes}
     </div>
   )
 }

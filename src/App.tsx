@@ -1,22 +1,23 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./template/MainLayouts";
 import Header from './components/Header/Header';
 import Home from './views/Home/Home';
 import Random from './views/Random/Random';
-import Search from './views/Search/Search'
+import List from './views/List/List'
 
 function App() {
   return (
-    <div className="App">
+    <MainLayout>
       <BrowserRouter>
       <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/random" element={<Random />}></Route>
-          <Route path="/search" element={<Search />}></Route>
+          <Route path="/list" element={<List />}></Route>
         </Routes>
       </BrowserRouter>
-    </div>
+    </MainLayout>
   );
 }
 
