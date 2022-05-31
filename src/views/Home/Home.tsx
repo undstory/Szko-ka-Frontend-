@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <div>
-        <Link to="/random"><button>random photo</button></Link>
-        <Link to="/list"><button>List</button></Link>
+        <Link to="/random"><button>Random photo</button></Link>
+        <Link to="/gallery"><button>Gallery</button></Link>
     </div>
   )
 }

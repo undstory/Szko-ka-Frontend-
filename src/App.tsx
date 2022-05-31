@@ -4,7 +4,7 @@ import MainLayout from "./template/MainLayouts";
 import Header from './components/Header/Header';
 import Home from './views/Home/Home';
 import Random from './views/Random/Random';
-import List from './views/List/List'
+import Gallery from './views/Gallery/Gallery'
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/random" element={<Random />}></Route>
-          <Route path="/list" element={<List />}></Route>
+          <Route path="/gallery" element={<Gallery />}></Route>
         </Routes>
       </BrowserRouter>
     </MainLayout>

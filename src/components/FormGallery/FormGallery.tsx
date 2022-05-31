@@ -6,7 +6,7 @@ type FormValues = {
   query: string;
 }
 
-const Form: React.FC<{setQuery: (query: string) => void}> = (props) => {
+const FormGallery: React.FC<{setQuery: (query: string) => void}> = (props) => {
 
 
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
@@ -30,7 +30,7 @@ const onError = () => {
   )
 }
 
-export default Form
+export default FormGallery
 
 
 
