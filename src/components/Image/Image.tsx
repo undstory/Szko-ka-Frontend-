@@ -1,16 +1,38 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
 
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
-const Image: React.FC<{result: any}> = (props) => {
-   const photo = props.result;
-    const { color, id, likes, views, urls, user } = photo;
-    console.log();
+const StyledSpan = styled.span`
+  color: ${({ theme }) => theme.white};
+  display: inline-block;
+  margin: 10px 0;
+  font-size: ${({ theme }) => theme.textSize};
+`;
+
+const Image: React.FC<{ result: any }> = (props) => {
+  //typuje właściwości obiektu props
+  const photo = props.result;
+  const { likes, urls, user } = photo;
+  console.log();
   return (
-    <div>Author: {user.name}
-        <img src={urls.small} alt={photo.alt_description} title={photo.alt_description} />
-        Likes: {likes}
-    </div>
-  )
-}
+    <StyledWrapper>
+      <img
+        src={urls.small}
+        alt={photo.alt_description}
+        title={photo.alt_description}
+      />
 
-export default Image
+        <StyledSpan>Author: {user.name}</StyledSpan>
+        <StyledSpan>Likes: {likes} </StyledSpan>
+
+    </StyledWrapper>
+  );
+};
+
+export default Image;

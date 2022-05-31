@@ -16,8 +16,8 @@ const GlobalStyles =  createGlobalStyle`
         font-size: 1.6rem;
         max-width: 1920px;
         margin: 0 auto;
-        background-color: #222;
-        color: #e0e0e0;
+        background-color: #333533;
+        color: '#e8eddf';
     }
 
     ul {
@@ -27,6 +27,11 @@ const GlobalStyles =  createGlobalStyle`
     a {
         text-decoration: none;
         color: black;
+    }
+
+    button {
+        outline: none;
+        cursor: pointer;
     }
 `
 

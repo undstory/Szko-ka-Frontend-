@@ -1,6 +1,12 @@
 import {useRef} from 'react'
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form'
+import styled from 'styled-components'
+import StyledInput from '../Input/Input'
+import StyledButton from '../Button/Button';
+
+
+
 
 type FormValues = {
   query: string;
@@ -24,8 +30,8 @@ const onError = () => {
 
   return (
     <form onSubmit={handleSubmit(formHandler, onError)}>
-        <input type="text"  {...register("query", { required: true })} />
-        <button type="submit" >Search</button>
+        <StyledInput type='text' {...register("query", { required: true })} placeholder="Word..." />
+        <StyledButton type="submit">Search</StyledButton>
     </form>
   )
 }
@@ -34,6 +40,7 @@ export default Form
 
 
 
+// const inputChangeHandler = (event: React.ChangeEvent<HTMLInputElement>): void => {
 
 
 
