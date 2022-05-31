@@ -1,15 +1,13 @@
 import React from 'react'
 
 const Image: React.FC<{result: any}> = (props) => {
-   const photo = props.result;
-    const { results } = photo;
-    console.log(results);
+   const photos = props.result;
   return (
     <div>Author:
-       {results.map((el : any) => {
-          return ( <p>
+       {photos.map((el : any) => {
+          return (
               <img key={el.id} src={el.urls.small} />
-              </p>)
+              )
        })}
     </div>
   )

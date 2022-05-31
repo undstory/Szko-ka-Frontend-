@@ -8,7 +8,7 @@ import { API_URL_GALLERY } from '../../api/api';
 const Gallery = () => {
 
 const [query, setQuery ] = useState('cat');
-const [result, setResult] = useState();
+const [result, setResult] = useState([]);
 const [isFetching, setIsFetching] = useState(true);
 
 
@@ -19,12 +19,12 @@ useEffect(() => {
             params: {
                 query: query,
                 page: 1,
-                per_page: 6
+                per_page: 9
             }
         })
         .then((data) => {
-            setResult(data.data);
-            console.log(data.data)
+            setResult(data.data.results);
+            console.log(data.data.results)
             setIsFetching(false);
         });
   }

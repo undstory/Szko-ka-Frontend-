@@ -24,7 +24,7 @@ const onError = () => {
 
   return (
     <form onSubmit={handleSubmit(formHandler, onError)}>
-        <input type="text"  {...register("query", { required: true })}  />
+        <input type="text"  {...register("query", { required: true })} />
         <button type="submit" >Search</button>
     </form>
   )
