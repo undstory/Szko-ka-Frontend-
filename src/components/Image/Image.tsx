@@ -21,7 +21,6 @@ const StyledSpan = styled.span`
 const Image: React.FC<{ result: any }> = (props) => {
   //typuje właściwości obiektu props
   const [modal, setModal] = useState(false)
-  // const [closeModal, setCloseModal] = useState(false)
 
   const photo = props.result;
   const { likes, urls, user } = photo;
