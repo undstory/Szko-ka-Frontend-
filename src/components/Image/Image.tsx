@@ -1,11 +1,14 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import Modal from "../Modal/Modal";
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 
 const StyledSpan = styled.span`
@@ -17,21 +20,38 @@ const StyledSpan = styled.span`
 
 const Image: React.FC<{ result: any }> = (props) => {
   //typuje właściwości obiektu props
+  const [modal, setModal] = useState(false)
+  // const [closeModal, setCloseModal] = useState(false)
+
   const photo = props.result;
   const { likes, urls, user } = photo;
-  console.log();
+
+  const handleModal = () =>  {
+    setModal(true)
+    console.log(modal)
+  }
+
+  const biggerImage = urls.regular;
+  const userName = user.name.toUpperCase();
+
   return (
-    <StyledWrapper>
+    <>
+      <StyledWrapper>
       <img
         src={urls.small}
         alt={photo.alt_description}
         title={photo.alt_description}
+        onClick={() => handleModal()}
       />
 
-        <StyledSpan>Author: {user.name}</StyledSpan>
+        <StyledSpan>Author: {userName}</StyledSpan>
         <StyledSpan>Likes: {likes} </StyledSpan>
 
     </StyledWrapper>
+    {modal && <Modal setModal={setModal} biggerImage={biggerImage} userName={userName} /> }
+
+    </>
+
   );
 };
 
