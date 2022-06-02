@@ -2,20 +2,23 @@ import styled from "styled-components";
 
 const StyledModalContainer = styled.div`
   position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%);
   display: flex;
   flex-direction: column;
   border-radius: 5px;
   justify-content: center;
   z-index: 333;
   max-width: 800px;
-  height: auto;
+  max-height: 100%;
   box-shadow: 0px 0px 40px -11px rgba(0, 0, 0, 1);
 `;
 
 const StyledImg = styled.img`
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 `;
 
 const StyledInfoWrapper = styled.div`
@@ -49,35 +52,26 @@ const StyledButtonClose = styled.button`
 
 const Modal: React.FC<{
   setModal: any;
-  photo?: any;
+  modalData: any;
 }> = (props) => {
-  const photo = props.photo;
-
-  console.log(photo);
-
+  const photo = props.modalData;
 
   const handleCloseModal = () => {
     props.setModal(false);
   };
 
   return (
-<>
-
-
-
-          <StyledModalContainer>
-            <StyledInfoWrapper>
-              <StyledInfoText>Author: </StyledInfoText>
-              <StyledButtonClose onClick={() => handleCloseModal()}>
-                x
-              </StyledButtonClose>
-            </StyledInfoWrapper>
-            <StyledImg alt="" />
-            </StyledModalContainer>
-
-
-
-</>
+    <>
+      <StyledModalContainer>
+        <StyledInfoWrapper>
+          <StyledInfoText>Author: {photo.user.username} </StyledInfoText>
+          <StyledButtonClose onClick={() => handleCloseModal()}>
+            x
+          </StyledButtonClose>
+        </StyledInfoWrapper>
+        <StyledImg alt="" src={photo.urls.regular} />
+      </StyledModalContainer>
+    </>
   );
 };
 

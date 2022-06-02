@@ -7,6 +7,7 @@ import { API_URL_GALLERY } from "../../api/api";
 import Header from "../../components/Header/Header";
 import styled from "styled-components";
 import StyledButton from "../../components/Button/Button";
+import Subheader from "../../components/Header/Subheader";
 
 const StyledNavbar = styled.nav`
   display: flex;
@@ -48,10 +49,12 @@ const Gallery = () => {
     <>
       <StyledNavbar>
         <Header />
+
         <Link to="/">
           <StyledButton>Back to home</StyledButton>
         </Link>
       </StyledNavbar>
+      <Subheader>Gallery</Subheader>
       <Form setQuery={setQuery} />
       <StyledImageWrapper>
         {!isFetching && <Images result={result} />}

@@ -9,6 +9,7 @@ const StyledWrapper = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 10px;
+  position: relative;
   /* display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -36,45 +37,47 @@ const StyledImg = styled.img`
    width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: 0.3s;
+  cursor: pointer;
 `;
 
 const Image: React.FC<{ result: any }> = (props) => {
   const [modal, setModal] = useState(false);
-
+  const [modalData, setModalData] = useState(null);
   const photos = props.result;
 
   const handleModal = () => {
     setModal(true);
-
   };
 
-  return (
-    <>
-      <StyledWrapper>
-        {photos.map((photo: any) => {
-          return (
-            <>
-              <StyledCard>
+  const handleModalData = (data: any) => {
+    setModalData(data)
+  }
+
+  const pictures = photos.map((photo: any) => (
+<StyledCard>
                 <StyledImg
                   key={photo.id}
                   src={photo.urls.small}
-                  onClick={() => handleModal()}
+                  onClick={() => {handleModal(); handleModalData(photo)}}
                   alt={photo.alt_description}
                   title={photo.alt_description}
                 />
                 <StyledSpan>Author: {photo.user.name}</StyledSpan>
                 <StyledSpan>Likes: {photo.likes} </StyledSpan>
               </StyledCard>
+  ) );
+
+  return (
+    <>
+      <StyledWrapper>
+        {pictures}
               {modal && (
                 <GalleryModal
                   setModal={setModal}
-                  photo={photo.urls}
+                modalData={modalData}
                 />
               )}
-            </>
-          );
-        })}
+
       </StyledWrapper>
     </>
   );

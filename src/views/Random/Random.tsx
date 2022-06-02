@@ -7,6 +7,7 @@ import { API_URL_RANDOM } from "../../api/api";
 import Header from "../../components/Header/Header";
 import styled from "styled-components";
 import StyledButton from "../../components/Button/Button";
+import Subheader from "../../components/Header/Subheader";
 
 const StyledNavbar = styled.nav`
   display: flex;
@@ -24,7 +25,7 @@ const StyledImageWrapper = styled.div`
 
 const Random = () => {
   const [query, setQuery] = useState("");
-  const [result, setResult] = useState();
+  const [result, setResult] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
 
   useEffect(() => {
@@ -51,6 +52,7 @@ const Random = () => {
           <StyledButton>Back to home</StyledButton>
         </Link>
       </StyledNavbar>
+      <Subheader>Random photo</Subheader>
       <Form setQuery={setQuery} />
       <StyledImageWrapper>
         {!isFetching && <Image result={result} />}
