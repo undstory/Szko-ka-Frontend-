@@ -1,15 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
-import Modal from "../Modal/Modal";
+import GalleryModal from "../Modal/GalleryModal";
 
 const StyledWrapper = styled.div`
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 10px;
+  /* display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
 `;
 
 const StyledCard = styled.div`
@@ -29,8 +33,10 @@ const StyledSpan = styled.span`
 `;
 
 const StyledImg = styled.img`
-  height: 500px;
-  object-fit: cover;
+   width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: 0.3s;
 `;
 
 const Image: React.FC<{ result: any }> = (props) => {
@@ -46,24 +52,24 @@ const Image: React.FC<{ result: any }> = (props) => {
   return (
     <>
       <StyledWrapper>
-        {photos.map((el: any) => {
+        {photos.map((photo: any) => {
           return (
             <>
               <StyledCard>
                 <StyledImg
-                  key={el.id}
-                  src={el.urls.small}
+                  key={photo.id}
+                  src={photo.urls.small}
                   onClick={() => handleModal()}
-                  alt={el.alt_description}
-                  title={el.alt_description}
+                  alt={photo.alt_description}
+                  title={photo.alt_description}
                 />
-                <StyledSpan>Author: {el.user.name}</StyledSpan>
-                <StyledSpan>Likes: {el.likes} </StyledSpan>
+                <StyledSpan>Author: {photo.user.name}</StyledSpan>
+                <StyledSpan>Likes: {photo.likes} </StyledSpan>
               </StyledCard>
               {modal && (
-                <Modal
+                <GalleryModal
                   setModal={setModal}
-                  photos={photos}
+                  photo={photo.urls}
                 />
               )}
             </>

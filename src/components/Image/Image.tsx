@@ -27,7 +27,6 @@ const Image: React.FC<{ result: any }> = (props) => {
 
   const handleModal = () =>  {
     setModal(true)
-    console.log(modal)
   }
 
   const biggerImage = urls.regular;

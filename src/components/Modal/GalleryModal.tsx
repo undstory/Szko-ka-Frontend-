@@ -49,25 +49,35 @@ const StyledButtonClose = styled.button`
 
 const Modal: React.FC<{
   setModal: any;
-  biggerImage?: string;
-  userName?: string;
-  photos?: [];
+  photo?: any;
 }> = (props) => {
+  const photo = props.photo;
+
+  console.log(photo);
+
 
   const handleCloseModal = () => {
     props.setModal(false);
   };
 
   return (
-    <StyledModalContainer>
-      <StyledInfoWrapper>
-        <StyledInfoText>Autor: {props.userName}</StyledInfoText>
-        <StyledButtonClose onClick={() => handleCloseModal()}>
-          x
-        </StyledButtonClose>
-      </StyledInfoWrapper>
-      <StyledImg src={props.biggerImage} alt="" />
-    </StyledModalContainer>
+<>
+
+
+
+          <StyledModalContainer>
+            <StyledInfoWrapper>
+              <StyledInfoText>Author: </StyledInfoText>
+              <StyledButtonClose onClick={() => handleCloseModal()}>
+                x
+              </StyledButtonClose>
+            </StyledInfoWrapper>
+            <StyledImg alt="" />
+            </StyledModalContainer>
+
+
+
+</>
   );
 };
 

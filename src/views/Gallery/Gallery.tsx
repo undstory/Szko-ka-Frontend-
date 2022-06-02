@@ -34,7 +34,7 @@ const Gallery = () => {
           params: {
             query: query,
             page: 1,
-            per_page: 9,
+            per_page: 12
           },
         })
         .then((data) => {
