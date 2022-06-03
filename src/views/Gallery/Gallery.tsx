@@ -23,9 +23,15 @@ const StyledImageWrapper = styled.div`
   margin: 80px;
 `;
 
+const StyledParagraph = styled.p`
+    color: ${({ theme }) => theme.white};
+    margin-top: 20px;
+    letter-spacing: 1px;
+`;
+
 const Gallery = () => {
   const [query, setQuery] = useState("");
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState<any>({});
   const [isFetching, setIsFetching] = useState(true);
 
   useEffect(() => {
@@ -56,6 +62,7 @@ const Gallery = () => {
       </StyledNavbar>
       <Subheader>Gallery</Subheader>
       <Form setQuery={setQuery} />
+      <StyledParagraph>Tips: If you click on the picture - you will see it bigger</StyledParagraph>
       <StyledImageWrapper>
         {!isFetching && <Images result={result} />}
       </StyledImageWrapper>

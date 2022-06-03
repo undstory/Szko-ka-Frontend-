@@ -19,14 +19,18 @@ const StyledSpan = styled.span`
   font-size: ${({ theme }) => theme.textSize};
 `;
 
-// interface Props {
-//   result: ResponseData
-// }
+const StyledImg = styled.img`
+  cursor: pointer;
+`;
 
-const Image: React.FC<{result: any}> = (props)=> {
-  const [modal, setModal] = useState(false)
+interface Props {
+  result: ResponseData
+}
 
-  const photo = props.result;
+const Image: React.FC<Props> = ({result})=> {
+  const [modal, setModal] = useState<boolean>(false)
+
+  const photo = result;
   const { likes, urls, user, alt_description } = photo;
 
   const handleModal = () =>  {
@@ -39,7 +43,7 @@ const Image: React.FC<{result: any}> = (props)=> {
   return (
     <>
       <StyledWrapper>
-      <img
+      <StyledImg
         src={urls.small}
         alt={alt_description}
         title={alt_description}

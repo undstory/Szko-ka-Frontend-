@@ -47,8 +47,10 @@ const StyledButtonClose = styled.button`
   margin-right: 10px;
 `;
 
+
+
 const Modal: React.FC<{
-  setModal: any;
+  setModal :(modal: boolean ) => void;
   biggerImage?: string;
   userName?: string;
   photos?: [];

@@ -36,8 +36,8 @@ const StyledImg = styled.img`
   cursor: pointer;
 `;
 
-const Image: React.FC<{ result: any }> = (props) => {
-  const [modal, setModal] = useState(false);
+const Images: React.FC<{ result: any }> = (props) => {
+  const [modal, setModal] = useState<boolean>(false);
   const [modalData, setModalData] = useState<ResponseData | null>(null);
   const photos = props.result;
 
@@ -45,11 +45,11 @@ const Image: React.FC<{ result: any }> = (props) => {
     setModal(true);
   };
 
-  const handleModalData = (data: any) => {
+  const handleModalData = (data: ResponseData) => {
     setModalData(data)
   }
 
-  const pictures = photos.map((photo: any) => (
+  const pictures = photos.map((photo: ResponseData) => (
 <StyledCard>
                 <StyledImg
                   key={photo.id}
@@ -79,4 +79,4 @@ const Image: React.FC<{ result: any }> = (props) => {
   );
 };
 
-export default Image;
+export default Images;

@@ -8,7 +8,7 @@ import Header from "../../components/Header/Header";
 import styled from "styled-components";
 import StyledButton from "../../components/Button/Button";
 import Subheader from "../../components/Header/Subheader";
-import { ResponseData } from "../../models/model";
+// import { ResponseData } from "../../models/model";
 
 const StyledNavbar = styled.nav`
   display: flex;
@@ -24,10 +24,16 @@ const StyledImageWrapper = styled.div`
   margin: 80px;
 `;
 
+const StyledParagraph = styled.p`
+    color: ${({ theme }) => theme.white};
+    margin-top: 20px;
+    letter-spacing: 1px;
+`;
+
 const Random = () => {
-  const [query, setQuery] = useState("");
-  const [result, setResult] = useState<ResponseData>();
-  const [isFetching, setIsFetching] = useState(true);
+  const [query, setQuery] = useState<string>("");
+  const [result, setResult] = useState<any>({});
+  const [isFetching, setIsFetching] = useState<boolean>(true);
 
   useEffect(() => {
     if (query) {
@@ -55,6 +61,7 @@ const Random = () => {
       </StyledNavbar>
       <Subheader>Random photo</Subheader>
       <Form setQuery={setQuery} />
+      <StyledParagraph>Tips: If you click on the picture - you will see it bigger</StyledParagraph>
       <StyledImageWrapper>
         {!isFetching && <Image result={result} />}
       </StyledImageWrapper>

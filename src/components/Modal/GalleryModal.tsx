@@ -52,7 +52,7 @@ const StyledButtonClose = styled.button`
 `;
 
 const Modal: React.FC<{
-  setModal: any;
+  setModal :(modal: boolean ) => void;
   modalData: any;
 }> = (props) => {
   const photo = props.modalData;
