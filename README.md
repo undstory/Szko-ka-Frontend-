@@ -1,8 +1,6 @@
 # Szko-ka Frontend - final project 
 
-### Live: 
-
-Link: https://szko-ka-frontend.vercel.app/
+## Image gallery with pictures from UNSPLASH 
 
 ### Technologies
 
@@ -11,3 +9,7 @@ Link: https://szko-ka-frontend.vercel.app/
 * styled-components
 * Unsplash API 
 * some tests ;)
+
+### Live: 
+
+Link: https://szko-ka-frontend.vercel.app/
