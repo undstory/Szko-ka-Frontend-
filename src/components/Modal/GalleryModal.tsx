@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ResponseData } from "../../models/model";
 
 const StyledModalContainer = styled.div`
   position: absolute;
