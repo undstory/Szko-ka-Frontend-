@@ -1,8 +1,8 @@
 # Szko-ka Frontend - final project 
 
-## Live: 
+### Live: 
 
-Link: (https://szko-ka-frontend.vercel.app/)
+Link: https://szko-ka-frontend.vercel.app/
 
 ### Technologies
 
