@@ -1,6 +1,6 @@
 # Szko-ka Frontend - final project 
 
-## Image gallery with pictures from UNSPLASH 
+## Image gallery with pictures from unsplash.com
 
 ### Technologies
 
