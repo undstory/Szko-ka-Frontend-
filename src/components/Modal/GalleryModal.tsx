@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { ResponseData } from "../../models/model";
 
 const StyledModalContainer = styled.div`
   position: absolute;
-  top: -50px;
+  top: -10px;
   left: 50%;
   transform: translate(-50%);
   display: flex;

@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import Modal from "../Modal/Modal";
+import { ResponseData } from "../../models/model";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -18,12 +19,15 @@ const StyledSpan = styled.span`
   font-size: ${({ theme }) => theme.textSize};
 `;
 
-const Image: React.FC<{ result: any }> = (props) => {
-  //typuje właściwości obiektu props
+// interface Props {
+//   result: ResponseData
+// }
+
+const Image: React.FC<{result: any}> = (props)=> {
   const [modal, setModal] = useState(false)
 
   const photo = props.result;
-  const { likes, urls, user } = photo;
+  const { likes, urls, user, alt_description } = photo;
 
   const handleModal = () =>  {
     setModal(true)
@@ -37,8 +41,8 @@ const Image: React.FC<{ result: any }> = (props) => {
       <StyledWrapper>
       <img
         src={urls.small}
-        alt={photo.alt_description}
-        title={photo.alt_description}
+        alt={alt_description}
+        title={alt_description}
         onClick={() => handleModal()}
       />
 

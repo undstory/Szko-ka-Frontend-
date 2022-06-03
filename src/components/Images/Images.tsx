@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import GalleryModal from "../Modal/GalleryModal";
+import { ResponseData } from "../../models/model";
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -10,11 +11,6 @@ const StyledWrapper = styled.div`
   grid-auto-rows: minmax(50px, auto);
   grid-gap: 10px;
   position: relative;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap; */
 `;
 
 const StyledCard = styled.div`
@@ -42,7 +38,7 @@ const StyledImg = styled.img`
 
 const Image: React.FC<{ result: any }> = (props) => {
   const [modal, setModal] = useState(false);
-  const [modalData, setModalData] = useState(null);
+  const [modalData, setModalData] = useState<ResponseData | null>(null);
   const photos = props.result;
 
   const handleModal = () => {
